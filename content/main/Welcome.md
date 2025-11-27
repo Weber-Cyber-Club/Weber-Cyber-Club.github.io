@@ -4,7 +4,7 @@ showFullContent = true
 hideComments = true
 +++
 
-{{< parallax image="/Home/assets/welcome/wsucsclogo.png" >}}
+{{< parallax image="/assets/welcome/wsucsclogo.png" >}}
 
 <h2>Weber State Cybersecurity Club<h2>
 

@@ -2,7 +2,7 @@
 title = "Passwords Intro"
 date = "2025-10-17T21:26:09-06:00"
 author = "The Professor"
-cover = "/Home/assets/ProfessorsBanner.png"
+cover = "/assets/ProfessorsBanner.png"
 coverCaption = ""
 categories = ["Passwords"]
 description = "The purpose of this lab is to introduce students to hashes, hash types, and password attacks. This lab will explore what hashing is and how it works, how to identify different types of hashes, ways to break hashes, and how to be secure when using hashing algorithms."
@@ -61,7 +61,7 @@ The hash types used will be:
 
 * Whirlpool
 
-![Generating a Hash](/Home/assets/passwords-intro/browsergeneration.png)
+![Generating a Hash](/assets/passwords-intro/browsergeneration.png)
 
 **Generated Hashes**
 
@@ -92,7 +92,7 @@ In order to identify our hashes we are going to use a tool called hash-identifie
 
 After typing this command we will be greeted to this interface where we can begin entering hashes to identify.
 
-![Hash Identifier Screen](/Home/assets/passwords-intro/hash-identifier.png)
+![Hash Identifier Screen](/assets/passwords-intro/hash-identifier.png)
 
 After copying and pasting our hashes one by one into hash-identifier we get these results
 
@@ -115,7 +115,7 @@ Hash 4:
 Notice how Hash 3 and 4 return the same results, this is because both hashes obviously look the exact same, in this case they are not, Hash 3 is SHA-512 and 4 is Whirlpool. However, this is just something you would have to figure out as the attack progressed seeing there is not an obvious separation between the two CHFs.
 
 
-![Hash Types are the Same](/Home/assets/passwords-intro/similarhash.png)
+![Hash Types are the Same](/assets/passwords-intro/similarhash.png)
 
 ### Using Hashcat to Find Plaintext Passwords
 
@@ -165,7 +165,7 @@ There are a few options we will need to use here:
 
 The attack modes are listed here:
 
-![Attack Modes](/Home/assets/passwords-intro/attackmodes.png)
+![Attack Modes](/assets/passwords-intro/attackmodes.png)
 
 It might not be very clear but we are going to use attack mode 0 or straight mode
 
@@ -225,7 +225,7 @@ In the end a final command should show us all of our hashes:
 These are all of our plaintext passwords. Due to the fact they were just in a straight wordlist, these were incredibly easy for us to break.
 
 ## Conclusion
-In closing, I hope that you now feel more knowledgeable on password cracking techniques, but more importantly, I hope you have learned something about password security. You should now be able to see just how important not only password complexity's, or length are. But also, how bad password reuse can be. This is a very brief overview of password attacks and they get much deeper than this. If you would like to try your hand at some other challenges, spanning different hash types, operating systems, and even tools, you should check out the [Weber State Cyber Club's Passwords Section](/Home/categories/passwords/). There are also a multitude of resources out there on the mathematics behind hash functions, my personal choice for these things is oddly enough [Wikipedia](https://www.wikipedia.org) it is very helpful at giving you an overview of these topics. Thank you for participating in this lab. I hope you learned a lot and enjoyed the format!
+In closing, I hope that you now feel more knowledgeable on password cracking techniques, but more importantly, I hope you have learned something about password security. You should now be able to see just how important not only password complexity's, or length are. But also, how bad password reuse can be. This is a very brief overview of password attacks and they get much deeper than this. If you would like to try your hand at some other challenges, spanning different hash types, operating systems, and even tools, you should check out the [Weber State Cyber Club's Passwords Section](/categories/passwords/). There are also a multitude of resources out there on the mathematics behind hash functions, my personal choice for these things is oddly enough [Wikipedia](https://www.wikipedia.org) it is very helpful at giving you an overview of these topics. Thank you for participating in this lab. I hope you learned a lot and enjoyed the format!
 
 **Until Next Time!**
 

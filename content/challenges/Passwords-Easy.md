@@ -2,7 +2,7 @@
 title = "Password Cracking Challenge - Easy"
 date = "2025-10-23T20:46:38-06:00"
 author = "The Professor"
-cover = "/Home/assets/ProfessorsBanner.png"
+cover = "/assets/ProfessorsBanner.png"
 coverCaption = ""
 categories = ["Passwords"]
 description = "This challenge has been created to give an introduction into hash types and  cracking some passwords using a dictionary."
@@ -57,8 +57,8 @@ In this challenge students will be required to identify various hash types, and 
 
 ## Answers
 
-Check your answers to the above questions [here](/Home/extradocs/passwords/passwords-easy-answers/).
+Check your answers to the above questions [here](/extradocs/passwords/passwords-easy-answers/).
 
 ## Extra Help
 
-If you would like some extra help, I have created a lab on this topic that should give you extra guidance into hashing, along with techniques for breaking passwords. You can find this lab [here](/Home/labs/passwords-intro/).
+If you would like some extra help, I have created a lab on this topic that should give you extra guidance into hashing, along with techniques for breaking passwords. You can find this lab [here](/labs/passwords-intro/).

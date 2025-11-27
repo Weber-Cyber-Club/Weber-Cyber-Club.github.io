@@ -2,7 +2,7 @@
 title = "Meta"
 date = "2025-10-17T22:11:04-06:00"
 author = "Sahara Krompel"
-cover = "/Home/assets/doomtech_banner.png"
+cover = "/assets/doomtech_banner.png"
 coverCaption = ""
 categories = ["OSINT"]
 description = "This lab is adapted from the National Cyber League Gymnasium Open Source Intelligence easy challenge titled *Meta* The purpose of this lab is to teach students how to extract and analyze metadata from image files using both online tools and command-line utilities, while understanding the security and privacy implications of embedded metadata."
@@ -37,9 +37,9 @@ Metadata can be used to reconstruct attack timelines by correlating file creatio
 
 ## Lab Guide:
 
-![Meta.jpg](/Home/assets/meta/Meta.jpg)
+![Meta.jpg](/assets/meta/Meta.jpg)
 
-This lab contains one [JPEG image file](/Home/assets/meta/Meta.jpg) featuring a baby lamb. There are two main ways to extract the metadata from this file and answer the [questions](#questions).
+This lab contains one [JPEG image file](/assets/meta/Meta.jpg) featuring a baby lamb. There are two main ways to extract the metadata from this file and answer the [questions](#questions).
 
 The first of these ways is to utilize an online tool such as https://www.metadata2go.com/.
 
@@ -121,4 +121,4 @@ In this lab, students have learned how to extract and analyze metadata from imag
 
 ## Answers
 
-**The answers to the question asked within this lab are contained within the [Meta Lab Answer File](/Home/extradocs/meta/meta-answers/).**
+**The answers to the question asked within this lab are contained within the [Meta Lab Answer File](/extradocs/meta/meta-answers/).**
