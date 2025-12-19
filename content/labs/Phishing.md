@@ -213,7 +213,7 @@ This should be our result:
 
 If everything has worked correctly, we can go into our Wireshark again and view the whole SMTP conversation and the POST request from the victim machine.
 
-![Wireshark Final](/assets/phsihing/wireshark-final.png)
+![Wireshark Final](/assets/phishing/wireshark-final.png)
 
 Your job will be to find the username and password from the POST request, go to the victim machine web server, and log in successfully impersonating The Professor, and retrieve the flag that we are looking for! Good Luck!
 
@@ -236,7 +236,7 @@ I hope this gave you a good look into the basics of how phishing campaigns are l
 
 ## Answers
 
-**The answers to the question asked within this lab are contained within the [Phishin Lab Answer File](/extradocs/phishing/Phishing-Answer/).**
+**The answers to the question's asked within this lab are contained within the [Phishing Lab Answer File](/extradocs/phishing/Phishing-Answer/).**
 
 **Until Next Time!**
 
