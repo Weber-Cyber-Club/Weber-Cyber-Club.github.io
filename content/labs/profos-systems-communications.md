@@ -457,7 +457,7 @@ Destination Port: 8080
 ![ProfCom Lab Layout](/assets/profcom/ProfComLabLayout.png)
 
 ## Answers
-**The answers to the question asked within this lab are contained within the [Profos-Systems Communications Lab Answer File](/extradocs/profcom/profcom-answer/).**
+**The answers to the questions asked within this lab are contained within the [Profos-Systems Communications Lab Answer File](/extradocs/profcom/profcom-answer/).**
 
 ## Conclusion
 
