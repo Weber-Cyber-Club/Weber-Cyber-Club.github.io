@@ -48,72 +48,74 @@ Now with Docker installed, let's begin checking and installing the dependencies 
 
 To check if Python 3 exists just run:
 
-  python3 --version
+```
+python3 --version
+```
 
 As long as a version appears, you have Python 3 on your system already! If, for some reason, you did not have Python 3 installed, just run:
+```
+# Ensures your repository indexes are current
+sudo apt update
 
-  # Ensures your repository indexes are current
-   sudo apt update
+# Installs Python 3
 
-  # Installs Python 3
-
-  sudo apt install python3
-
+sudo apt install python3
+```
 To check if the Social Engineering Toolkit is installed on your system, run:
-
-  sudo setoolkit
-
+```
+sudo setoolkit
+```
 If this pulls up the Social Engineering Toolkit menu, then you have it installed; if not, just run:
+```
+sudo apt update
 
-  sudo apt update
-
-  sudo apt install set
-
+sudo apt install set
+```
 Now we should have everything we need set up and installed on our system!
 
 The final thing we need to do as far as setup is ensure we have this challenge on our machine. To do this, we will just clone the Club-Challenges repository from GitHub, using:
+```
+# Pull down the remote repository
+git clone https://github.com/weber-cyber-club/Club-Challenges.git
 
-  # Pull down the remote repository
-  git clone https://github.com/weber-cyber-club/Club-Challenges.git
-
-  # Change directory into the Phishing Lab repository
-  cd Club-Challenges/Labs/Phishing/
-
+# Change directory into the Phishing Lab repository
+cd Club-Challenges/Labs/Phishing/
+```
 
 ### Building The Docker Container
 
 Building a Docker container is quite simple when you have all the files you need already, which, in this case, we do. Start by ensuring you are in the /Club-Challenges/Labs/Phishing/ directory as described previously and run the following command to build the Docker container (please note it may take some time for the machine to fully build for the first time):
-
-  docker build -t phishing-lab .
-
+```
+docker build -t phishing-lab .
+```
 - -t sets the tag or name of the image we are building (the tag is used to make sure all the Docker images build the same way)
 - . sets the context of where the building files for the container are located, in this case, the current directory
 
 If you run:
-
-  docker image ls
-
+```
+docker image ls
+```
 You should see the "phishing-lab" container image that we just built. We are now ready to run our Docker machine. To run the Docker machine, we just need one command and a few flags:
-
-  docker run -d --network challenge_net --name victim-machine phishing-lab
-
+```
+docker run -d --network challenge_net --name victim-machine phishing-lab
+```
 - -d runs the container as detached, which means it will begin running on its own
 - --network sets the network we want this machine to reside on, in this case "challenge_net"
 - --name gives the machine a name; if you do not set this, it will get a random name (in this case, it is used again to make the machine you build similar to the one used in the lab)
 - phishing-lab is the name of the image we would like to run
 
 Now we just need to check if the machine successfully came up. To do this, we would run:
-
-  docker ps -a
-
+```
+docker ps -a
+```
 And look for the victim-machine, it should say up, and listening on ports 25/tcp and 80/tcp
 
 ![ps -a output](/assets/phishing/psa.png)
 
 Finally, let's just check what the IP address of this machine is. To do this, you will run the command:
-
-  docker network inspect challenge_net
-
+```
+docker network inspect challenge_net
+```
 You should get an output of two different machines (unless you have some from other labs), we are interested in “victim machine”.
 
 ![Victim Machine IP](/assets/phishing/victimmachineip.png)
@@ -143,15 +145,15 @@ We could always try to exploit the system that Profos-Systems is using for their
 To begin this journey, we need to understand what we are doing with social engineering. We are attempting to gain someone's trust who has no business trusting us in the first place. Unless you are super lucky, a user is not just going to hand you over a password if you say, "Hello there, can I please have your password????" This is where a phishing campaign comes into play. It is called a campaign for a reason; it will take some planning and proper execution to work. Let's start with a very common approach to phishing. We aren't going to directly ask the user for a password; however, we could use an HTML form to do the asking for us. Now, most users will not fall for a plain, old HTML form; we need to make it believable. What if... we stole the Profos-Systems login page???
 
 One way to accomplish this is using a tool called wget, which is on pretty much all Linux systems by default, which is why I didn't include it as something we needed to download. However, if you, for some reason, need to install it, just use this command:
-
-  sudo apt install wget
-
+```
+sudo apt install wget
+```
 And you should be good!
 
 So let's scrape a website using wget:
-
-  wget --mirror --page-requisites --adjust-extension --no-parent http://172.18.0.2/
-
+```
+wget --mirror --page-requisites --adjust-extension --no-parent http://172.18.0.2/
+```
 - --mirror: Turn on options suitable for mirroring.  This option turns on recursion and time-stamping, sets infinite recursion depth, and keeps FTP directory listings.  It is currently equivalent to -r -N -l inf --no-remove-listing.
 - --page-requisites: Turn on options suitable for mirroring.  This option turns on recursion and time-stamping, sets infinite recursion depth, and keeps FTP directory listings.  It is currently equivalent to -r -N -l inf --no-remove-listing.
 - --adjust-extension: If a file of type application/xhtml+xml or text/html is downloaded and the URL does not end with the regexp \.[Hh][Tt][Mm][Ll]?, this option will cause the suffix .html to be appended to the local filename.  This is useful,  for instance,  when you're mirroring a remote site that uses  .asp  pages,  but you want the mirrored pages to be viewable on your stock Apache  server.  Another good use for this is when you're downloading CGI-generated materials. A URL like http://site.com/article.cgi?25 will be saved as article.cgi?25.html
@@ -166,9 +168,9 @@ If we use the ls command, we can see that we do indeed have the files that we sh
 There is a really cool feature of Python 3, and that is running modules without having to write all the backend code for it. This function is used all the time in cyber, mostly for on-the-fly HTTP servers. While it is not that hard to set up something like httpd, it is much easier to just use one line of code.
 
 To run an HTTP server using Python that will host this site, we just need to run:
-
-  python3 -m http.server 80
-
+```
+python3 -m http.server 80
+```
 - -m: run library module as a script
 - http.server: creates a Python-backed HTTP server
 - 80: binds to port 80
@@ -180,9 +182,9 @@ Now let's check that our HTTP server is running on our machine. We can go to 172
 If we go back to our console that is running the server, we can see all of the things that the client requested from the HTTP server. We are going to need to do a little more work to see what the user is sending us in the post request, however. This is because we are not going to go through and fully rebuild the Profos-Systems website; there is some JavaScript that handles the API endpoints used for the authentication.
 
 What we can do to see the users POST data is use Wireshark to watch the traffic come in. We are going to need to listen on whichever interface is the bridge that was created for Docker. We can run the command:
-
-  ip add
-
+```
+ip add
+```
 And look for the interface that has the IP address of 172.18.0.1.
 
 Once we have this interface, we will open up Wireshark and double-click on the interface that we identified in the previous step.
@@ -194,9 +196,9 @@ This will bring us into the adapter that the Docker container should be talking 
 We are now prepared to phish The Professor. We know from earlier that the email address that was found for him is professor@profos-systems.com. The Docker victim-machine Docker container has an SMTP server for us to use that has been configured to accept mail from anyone. Therefore, we can use it to send the professor an email. Let's jump into the Social Engineering Toolkit and begin writing our phishing email.
 
 We will start by running the command:
-
-  sudo setoolkit
-
+```
+sudo setoolkit
+```
 Which will bring us to a menu screen. On the first screen, we should select option "1" for Social-Engineering Attacks, followed by option "5" for a Mass Mailer Attack. We are only attacking one user, so let's use option "1", and we do not want to use a template, so we will use option "2".
 
 Now we are ready to start writing an email. We want to get The Professor to do something he normally wouldn't do. One of the best ways to do this is by making things seem urgent. We should use a subject line that would give The Professor a reason to read it and take action! Let's use the subject line "We Crashed The Production Server".
